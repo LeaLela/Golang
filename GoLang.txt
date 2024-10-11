@@ -1,0 +1,87 @@
+GoLang
+
+2.predavanje
+-ne korištene varijable i importi su error
+-nije objektno orjentiran - nema klasa
+-nema nasljeđivanja
+
+-varijabla
+-tip podataka
+-konstante
+
+-string
+-rune-integer 32, predstavlja karaktere kroz unicode vrijednosti
+-byte,int,int8,int16,int32,int64,ruen,unit,unit8...
+-float32/64
+-complex64/128-imaginarni i realni dio brojeva
+-*T, pointer to type T
+
+-array [n]T
+-slice []T - kad ne znamo koliko treba zauzet array
+-struct{} - kao objekt
+-map [K]T - K - key, T - value
+-interface {}
+
+Deklaracija varijabli
+-var keyword
+-deklaracija - stvaranje varijable
+-incijalizacija - dodjeljivanje vrijednosti varijabli
+
+var brand string
+brand = "apple"
+
+var brandName string = "apple"
+
+name := "apple"
+
+var x, y, z = 1, 2, 3
+
+:= 
+- samo u scopeu funkcije, 
+- ne može se koristiti za update vrijednosti varijable. Treba koristiti =
+
+/////
+package main
+
+import "fmt"
+
+func main() {
+	var firstName string = "Lea"
+	var age int = 23
+	var height float64 = 1.75
+	var isStudent bool = true
+
+	fmt.Println(firstName, age, height, isStudent)
+}
+/////
+
+1. := samo lokalne varijable tj. samo u scopeu funkcije
+2. koristiti zero value
+3. dodavati tipove podataka
+4. izbjegavati neiskorištene varijable tj. bit ce error
+
+Konstante
+-typed - tip podatka konstante je specificiran
+-untyped - tip se nasljeđuje iz vrijednosti varijable
+
+Zero values
+-varijable su automatski inicijalizirane sa null vrijednosti ako drukčije nije odrađeno
+-string - "" - empty string
+-int,float - 0 , 0.0
+-bool - False
+-array - svaki index ima zero value
+-struct - prazan struct gdje svaki član ima zero value
+-pointer, interface, function, channel, slice, map - nil
+
+Konverzije tipova
+-da bi odradili bilo kakvu operaciju, tipovi podataka varijabli moraju biti isti
+-ne može kombinirati različite tipove podataka, izbacit ce compilation error
+-rješenje za to:
+	var pi float64 = 3.14
+	var radius int = 5
+	var circle float64 = 2 * pi * float54(radius)
+
+Scope varijable
+-global varijabla - na vrhu deklarirana, dostupna na svim scopeovima, nije dobro koristiti - memory leap/spike
+-lokalna varijabla - 
+-block scope -
