@@ -120,3 +120,26 @@ Receiver metode
 -best by value - stvara se kopija strukture
 -value Receiver - stvara kopiju i nad kopijom poziva funkcije itd.
 -pointer Receiver - šalje adresu na varijablu/strukturu, a ne na kopiju - zato ovo treba koristiti ako ćemo mijenjati propertije jer original mijenja
+
+
+4.predavanje
+
+-value receiver - koristimo kada čitamo podatke i kada koristimo manje strukture
+-pointer receiver - sigurnije koristiti, možemo mijenjati izvorni podatak i čitati ga 
+
+//incijalizacija pointer receiver
+func (p *Person) greet() {
+	fmt.Printf("Hello, my name is: %s %s and I am %d years old", p.FirstName, p.LastName, p.Age)
+}
+
+Control Flows
+-if / if else - 
+	-zagrade nisu potrebne, vitičaste su potrebne
+-switch
+	-može se koristiti kao expression i kao type switch
+-for
+-go to
+
+-while i doWhile petlje nema u Go-u
+
+Arrays slices and maps
