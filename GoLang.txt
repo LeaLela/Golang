@@ -85,3 +85,38 @@ Scope varijable
 -global varijabla - na vrhu deklarirana, dostupna na svim scopeovima, nije dobro koristiti - memory leap/spike
 -lokalna varijabla - 
 -block scope -
+
+
+
+3.predavanje
+
+Strukture
+
+struct Dog{
+	name string
+	age float
+}
+-najbliže objektu
+-value type - when asssignig a struct to another struct, a copy is made
+-named fields - each field in struct has it's name and type
+-methods
+
+-struktura može biti metoda, može biti proširena koristeći kompozicije
+
+Stvaranje novog projekta
+go mod init learajic/code-camp/3
+
+Objekti u GO 
+-svi tipovi podataka mogu bit Objekti
+-kompozicija - struct ili interface 
+-go ne podržava nasljeđivanje nema class keyworda
+
+Metode
+-funkcija koja se može pozivat samo na tipu podatka kojim je definirana, eksplicitno vezana za specifični tip
+-nema private i public, nego sa velikim i malim slovom to označavamo. Veliko slovo ima veću važnost nego malo slovo.
+-kada koristimo pakete metode i strukture nazivamo velikim slovom da bi im mogli pristupiti u drugim paketima
+
+Receiver metode
+-best by value - stvara se kopija strukture
+-value Receiver - stvara kopiju i nad kopijom poziva funkcije itd.
+-pointer Receiver - šalje adresu na varijablu/strukturu, a ne na kopiju - zato ovo treba koristiti ako ćemo mijenjati propertije jer original mijenja
