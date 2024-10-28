@@ -143,3 +143,42 @@ Control Flows
 -while i doWhile petlje nema u Go-u
 
 Arrays slices and maps
+
+
+5.predavanje
+
+For statement
+-break
+-continue
+
+For...range statement
+-break
+-continue
+
+	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	for index, value := range numbers {
+		fmt.Println(index, value)
+	}
+
+Array
+-kolekcija fiksne veličine gdje svi elementi moraju biti istog tipa
+-ne može se mijenjati veličina
+-indexi startaju od 0
+-len() - vraća duljinu arraya
+-cap() - vraća capacity arraya
+
+Slice
+-ordered collection of unspecified size
+-nema određenu fiksnu veličine
+-svi elementi su istog tipa
+-append() - add more elements to the slice
+-len() - vraća duljinu arraya
+-cap() - vraća capacity arraya
+
+Map
+-kolekcija key value parova
+-svi elementi kao i keys/indexi su istog tipa
+-keys/indexi are uniqe(neki tip podatka koji smo mi odredili da nam treba)
+-unordered, redoslijed elemenata nije uvijek isti
+
+
