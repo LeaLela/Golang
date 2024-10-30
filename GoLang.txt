@@ -182,3 +182,166 @@ Map
 -unordered, redoslijed elemenata nije uvijek isti
 
 
+6. predavanje
+
+Funkcije
+//
+func function_name(Parameter-list)(Return_type){
+    // function body.....
+}
+//
+
+/*
+func main() {
+	fmt.Println(greet())
+}
+
+func greet() string {
+	return "Greetings!"
+} 
+*/
+//vraća string i moramo ili spremiti u varijablu ili preko println pozvati
+
+
+/*
+func main() {
+	fmt.Println(greet("CodeCamper"))
+}
+
+func greet(name string) string {
+	return fmt.Sprintf("Greetings %s!", name)
+}
+*/
+//vraća ime
+
+Vrijabilni parametri (Variadic Parameter)
+-ne mora se pojaviti
+-ima jednu vrijednosti
+-ima više vrijednosti
+-imaju trotočje ispred tipa podatka
+-ako prosljeđujemo listu imena želimo imati mogućnost da ima jedno ime, više imena, ili ako nema ništa
+-greet(names...) - unpack slice, razdvoji slice ime po ime
+/*
+func main() {
+	greet("CodeCamper", "CodeGuru", "CodeWizard")
+}
+
+func greet(names ...string) {
+	for _, name := range names{
+		fmt.Printf("Greetings %s!\n", name)
+	}
+}
+*/
+/*
+func main() {
+	names := []string{"Code", "Camper"}
+	greet(names...)
+}
+
+func greet(names ...string) {
+	for _, name := range names{
+		fmt.Printf("Greetings %s!\n", name)
+	}
+}
+*/
+
+Return values
+-može biti više return values
+/*
+func main() {
+	//names := []string{"Code", "Camper"}
+	p := Person{"John", "Doe"}
+	name, lastname := greet(p)
+
+	fmt.Println(name)
+	fmt.Println(lastname)
+}
+
+func greet(person Person) (string, string) {
+	return person.Name, person.Lastname
+}
+*/
+
+_ označava skrivanje varijable ako nam u tom trenu nije potrebna
+/*
+	name, _/*lastname*/ := greet(p)
+
+	fmt.Println(name)
+	//fmt.Println(lastname)
+*/
+
+Named return parameters
+/*
+type Person struct{
+	Name string
+	Lastname string
+}
+
+func main() {
+	//names := []string{"Code", "Camper"}
+	p := Person{"John", "Doe"}
+	name, lastname := greet(p)
+
+	fmt.Println(name)
+	fmt.Println(lastname)
+}
+
+func greet(person Person) (name string, lastname string) {
+	//return person.Name, person.Lastname
+	name = person.Name
+	lastname = person.Lastname
+
+	return
+}
+*/
+
+Error handling
+-nema try catch blokova kao u Javi
+-error je tip podatka - biult-in interface with a single method: Error() string
+/*
+import "errors"
+func main() {
+	r, err := divide(5, 0)
+	if err != nil{
+		fmt.Printf("Error while dividing two numbers: %v", err.Error())
+		return
+	}
+	fmt.Println(r)
+}
+
+func divide(a,b int) (int, error){
+	if b==0{
+		return 0, errors.New("cannot divide by zero")
+	}
+	return a / b, nil
+}
+*/
+
+/*
+
+type DivisionError struct {
+	FirstNumber int
+	SecondNumber int
+	Message string
+
+}
+
+func (de *DivisionError) Error() string {
+	return fmt.Sprintf("division error: %d / %d, err: %s", de.FirstNumber, de.SecondNumber, de.Message)
+}
+func main() {
+	r, err := divide(5, 0)
+	if err != nil{
+		fmt.Printf("Error while dividing two numbers: %v", err.Error())
+		return
+	}
+	fmt.Println(r)
+}
+
+func divide(a,b int) (int, error){
+	if b==0{
+		return 0, &DivisionError{a, b, "cannot divide by zero"}
+	}
+	return a / b, nil
+}
+*/
