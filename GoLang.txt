@@ -345,3 +345,23 @@ func divide(a,b int) (int, error){
 	return a / b, nil
 }
 */
+
+7. predavanje
+
+Error handling
+Panic and recovery
+
+-panic - error koji se događa kada stvarno ima neki error(padne baza, ne može otvoriti file), zaustavlja aplikaciju
+-recover - funkcija koja vraća nazad program u kontrolu i zaustavlja crashanja
+
+Benefiti error handlinga
+-clarity
+-eksplicitna kontrola
+-efikasnost
+-reduced overhead
+
+Best practise
+-uvijek provjeravati errore, spremiti error vidjeti je li nil
+-reutrn errors early - čim je potreba, vraćati error, ne treba ga čuvati
+-wrap errors for context
+-koristiti custom error ali pametnije, ne treba komplicirati nego jednostavno
